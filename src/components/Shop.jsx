@@ -11,7 +11,7 @@ export function Shop(){
     const[order, setOrder] = useState([]);
 
     function addToBasket(item){
-        const itemIndex = order.findIndex(orderItem => orderItem.id === item.id)
+        const itemIndex = order.findIndex(orderItem => orderItem.mainId === item.mainId)
         if(itemIndex < 0){
             const newItem = {
                 ...item,
