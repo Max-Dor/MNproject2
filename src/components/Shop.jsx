@@ -52,8 +52,8 @@ export function Shop(){
     },[]);
 
     return <main className='container content'>
+        { isBasketShow && <BasketList order={order} handleBasketShow = {handleBasketShow}/>}
         <Cart quantity={order.length} handleBasketShow={handleBasketShow}/>
         { loading ? <Preloader/> : <GoodsList goods={goods} addToBasket={addToBasket} />}
-        { isBasketShow && <BasketList order={order} />}
     </main>
 }

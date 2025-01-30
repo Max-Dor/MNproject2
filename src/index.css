@@ -31,6 +31,26 @@ nav {
   padding: 1rem;
   z-index: 5;
 }
-.cart-quontity{
-  
+
+.basket-list{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50% ,-50%);
+  background-color: #ffffff;
+  width: 50rem;
+  max-width: 95%;
+  z-index: 5;
+}
+
+.basket-close{
+  cursor: pointer;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  color: #ffffff;
+}
+
+.basket-delete{
+  cursor: pointer;
 }
