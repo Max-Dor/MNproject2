@@ -41,6 +41,14 @@ nav {
   width: 50rem;
   max-width: 95%;
   z-index: 5;
+  animation: show 500ms ease-in-out;
+}
+
+.collection-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .basket-close{
@@ -51,6 +59,18 @@ nav {
   color: #ffffff;
 }
 
-.basket-delete{
+.basket-delete,.pointer{
   cursor: pointer;
+}
+
+
+@keyframes show{
+  from{
+    top: 80%;
+    opacity: 0;
+  }
+  to{
+    top: 50%;
+    opacity: 1;
+  }
 }

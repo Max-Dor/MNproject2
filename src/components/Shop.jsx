@@ -37,6 +37,43 @@ export function Shop(){
 
     function handleBasketShow(){
         setIsBasketShow(!isBasketShow);
+    };
+
+    const removeFromBasket = (itemId)=>{
+        const newOrder = order.filter(el => el.mainId !== itemId)
+        setOrder(newOrder)
+    };
+
+    const incrQuantity = (item)=>{
+        const orderItem = order.map(e=>{
+            if(e.mainId === item ){
+                const newQuantity = e.quantity + 1;
+                return{
+                    ...e,
+                    quantity: newQuantity
+                }
+            }else{
+                return e;
+            }
+        })
+        
+        setOrder(orderItem)
+    };
+
+    const decrQuantity = (item)=>{
+        const orderItem = order.map(e=>{
+            if(e.mainId === item ){
+                const newQuantity = e.quantity - 1;
+                return{
+                    ...e,
+                    quantity: newQuantity >= 0 ? newQuantity : 0
+                }
+            }else{
+                return e;
+            }
+        })
+        
+        setOrder(orderItem)
     }
 
     useEffect(function getGoods(){
@@ -52,7 +89,7 @@ export function Shop(){
     },[]);
 
     return <main className='container content'>
-        { isBasketShow && <BasketList order={order} handleBasketShow = {handleBasketShow}/>}
+        { isBasketShow && <BasketList order={order} handleBasketShow = {handleBasketShow} removeFromBasket={removeFromBasket} incrQuantity={incrQuantity} decrQuantity={decrQuantity}/>}
         <Cart quantity={order.length} handleBasketShow={handleBasketShow}/>
         { loading ? <Preloader/> : <GoodsList goods={goods} addToBasket={addToBasket} />}
     </main>
