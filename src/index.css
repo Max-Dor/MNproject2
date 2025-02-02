@@ -63,6 +63,23 @@ nav {
   cursor: pointer;
 }
 
+#toast-container{
+  top: 3rem !important;
+  animation:fade-in 500ms ease-in-out ;
+
+}
+
+@keyframes fade-in {
+  from{
+    opacity: 0;
+    transform: translateY(2rem);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0rem);
+  }
+}
+
 
 @keyframes show{
   from{
